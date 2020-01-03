@@ -1,0 +1,1941 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>计算机系统基础(下)实验报告</title>
+<!-- 2019-12-10 二 17:35 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="邹洋, 179074181" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">计算机系统基础(下)实验报告</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Lab 1 Cache Lab</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 解题思路的文字说明</a></li>
+<li><a href="#sec-1-2">1.2. 代码</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Lab 2 Memory Allocation Lab</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 解题思路的文字说明</a></li>
+<li><a href="#sec-2-2">2.2. 代码</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Lab 3 Tiny Shell</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 解题思路的文字说明</a></li>
+<li><a href="#sec-3-2">3.2. 代码</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Lab 1 Cache Lab</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 解题思路的文字说明</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Part A概述：
+（Ⅰ）任务：
+</p>
+
+<p>
+编写一个cache模拟器，该模拟器可以模拟在一系列的数据访问中cache的命中、不命中与牺牲行的情况，其中，需要牺牲行时，用LRU替换策略进行替换。
+</p>
+
+<p>
+cache模拟器需要能处理一系列如下的命令：
+</p>
+
+<p>
+Usage: ./csim-ref [-hv] -s &lt;s&gt; -E &lt;E&gt; -b &lt;b&gt; -t &lt;tracefile&gt;
+</p>
+
+<p>
+其中各参数意义如下：
+</p>
+
+<p>
+①-h：输出帮助信息的选项；
+</p>
+
+<p>
+②-v：输出详细运行过程信息的选项；
+</p>
+
+<p>
+③-s：组索引的位数(意味着组数S=2<sup>s</sup>)；
+</p>
+
+<p>
+④-E：每一组包含的行数；
+</p>
+
+<p>
+⑤-b：偏移位的宽度(意味着块的大小为B=2<sup>b</sup>);
+</p>
+
+<p>
+⑥-t：输入数据文件的路径(测试数据从该文件里面读取)。
+</p>
+
+<p>
+ 
+</p>
+
+<p>
+Cache结构体的声明：
+（Ⅰ）数据成员声明：
+</p>
+
+
+<p>
+（Ⅱ）各种操作的实现：
+</p>
+
+<p>
+ 定义了数据成员以后，需要对数据进行各种操作(设值、申请内存、释放内存，查询数据等等)，如下：
+</p>
+
+<p>
+①首先调用这个函数需要上面提到的三个头文件；
+</p>
+
+<p>
+②函数需要一个选项字符串作为参数，选项字符串即由各种选项构成的一个字符串，而选项就是上面提到的-s -E -b之类的了，所以考虑所有的选项，这里的选项字符串为“-hvs:E:b:t:”。
+</p>
+
+<p>
+③然后函数会根据选项字符串去和你的输入进行匹配，当某个选项匹配时，函数会返回该选项对应的字符，而该选项对应的参数会存入变量optarg中，该变量是包含在头文件中的，这样一来的话我们就可以快速而简洁地分析命令行中地字符串了。
+</p>
+
+
+<p>
+Cache的模拟
+定义了Cache以及有了测试数据以后我们就可以开始用Cache来模拟了，我们可以先理一下Cache工作的流程：
+1、输入数据指定需要访问的地址寄存器。
+2、分析输入的地址，并判断是否命中。
+3、如果命中，则hits++，并更新LRU值。
+4、如果不命中，则misses++，然后判断是否需要eviction，并更新LRU值。
+</p>
+
+<p>
+Part B概述：
+（Ⅰ）任务：
+</p>
+
+<p>
+①编写一个实现矩阵转置的函数。即对于给定的矩阵A[N][M]，得到矩阵B[M][N]，使得对于任意0&lt;=i&lt;N、0&lt;=j&lt;M，有B[j][i]=A[i][j]，
+并且使函数调用过程中对cache的不命中数miss尽可能少。
+②在如下函数里面编写最终代码：
+</p>
+
+<p>
+（Ⅱ）测试用例：
+用三种不同规模的数组进行测试，规模分别为：
+• 32 × 32 (M = 32, N = 32)
+• 64 × 64 (M = 64, N = 64)
+• 61 × 67 (M = 61, N = 67)
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 代码</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+请将实验的C代码及其注释填入下面的C代码块.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">csim
+
+#include "cachelab.h"
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;strings.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;getopt.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAGIC_LRU_NUM 999
+typedef struct{
+    int valid;       
+    int tag;         
+    int LruNumber;   
+} Line;
+
+typedef struct{
+    Line* lines;   
+} Set;
+
+typedef struct {
+    int set_num;    
+    int line_num;  
+    Set* sets;      
+} Sim_Cache;
+
+void printHelpMenu();                                                                     
+void checkOptarg(char *curOptarg);                                                         
+int get_Opt(int argc,char **argv,int *s,int *E,int *b,char *tracefileName,int *isVerbose);  
+void init_SimCache(int s,int E,int b,Sim_Cache *cache);                                    
+int getSet(int addr,int s,int b);                                                          
+int getTag(int addr,int s,int b);                                                           
+
+void loadData(Sim_Cache *sim_cache,int addr,int size,int setBits,int tagBits ,int isVerbose);                                                        
+void storeData(Sim_Cache *sim_cache,int addr,int size,int setBits,int tagBits ,int isVerbose);                                                        
+void modifyData(Sim_Cache *sim_cache,int addr,int size,int setBits,int tagBits ,int isVerbose);                                                     
+
+int misses;
+int hits;
+int evictions;
+int main(int argc,char **argv){
+    int s,E,b,isVerbose=0;
+    char tracefileName[100],opt[10];
+
+    int addr,size;
+    misses = hits = evictions =0;
+
+    Sim_Cache cache;
+
+    get_Opt(argc,argv,&amp;s,&amp;E,&amp;b,tracefileName,&amp;isVerbose);
+    init_SimCache(s,E,b,&amp;cache);
+    FILE *tracefile = fopen(tracefileName,"r");
+
+    while(fscanf(tracefile,"%s %x,%d",opt,&amp;addr,&amp;size) != EOF){
+	if(strcmp(opt,"I")==0)continue;
+	int setBits = getSet(addr,s,b);
+	int tagBits = getTag(addr,s,b);
+//        printf("----------------------------------\n");
+//        printf("setBits:%x  tagBits:%x\n",setBits,tagBits);
+	if(isVerbose == 1) printf("%s %x,%d ",opt,addr,size);
+	if(strcmp(opt,"S")==0) {
+	    storeData(&amp;cache,addr,size,setBits,tagBits,isVerbose);
+	}
+	if(strcmp(opt,"M")==0) {
+	    modifyData(&amp;cache,addr,size,setBits,tagBits,isVerbose);
+	}
+	if(strcmp(opt,"L")==0) {
+	    loadData(&amp;cache,addr,size,setBits,tagBits,isVerbose);
+	}
+	if(isVerbose == 1) printf("\n");
+    }
+    printSummary(hits,misses,evictions);
+    return 0;
+}
+
+int getSet(int addr,int s,int b){
+    addr = addr &gt;&gt; b;
+    int mask =  (1&lt;&lt;s)-1;
+    return addr &amp;mask;
+}
+
+int getTag(int addr,int s,int b){
+    int mask = s+b;
+    return addr &gt;&gt; mask;
+}
+
+int findMinLruNumber(Sim_Cache *sim_cache,int setBits){
+    int i;
+    int minIndex=0;
+    int minLru = MAGIC_LRU_NUM;
+    for(i=0;i&lt;sim_cache-&gt;line_num;i++){
+	if(sim_cache-&gt;sets[setBits].lines[i].LruNumber &lt; minLru){
+	    minIndex = i;
+	    minLru = sim_cache-&gt;sets[setBits].lines[i].LruNumber;
+	}
+    }
+    return minIndex;
+}
+
+void updateLruNumber(Sim_Cache *sim_cache,int setBits,int hitIndex){
+	sim_cache-&gt;sets[setBits].lines[hitIndex].LruNumber = MAGIC_LRU_NUM;
+	int j;
+	for(j=0;j&lt;sim_cache-&gt;line_num;j++){
+	    if(j!=hitIndex) sim_cache-&gt;sets[setBits].lines[j].LruNumber--;
+	}
+}
+
+int isMiss(Sim_Cache *sim_cache,int setBits,int tagBits){
+    int i;
+    int isMiss = 1;
+    for(i=0;i&lt;sim_cache-&gt;line_num;i++){
+	if(sim_cache-&gt;sets[setBits].lines[i].valid == 1 &amp;&amp; sim_cache-&gt;sets[setBits].lines[i].tag == tagBits){
+	    isMiss = 0;
+	    updateLruNumber(sim_cache,setBits,i);
+	}
+    }
+    return isMiss;
+}
+
+int updateCache(Sim_Cache *sim_cache,int setBits,int tagBits){
+    int i;
+    int isfull = 1;
+    for(i=0;i&lt;sim_cache-&gt;line_num;i++){
+	if(sim_cache-&gt;sets[setBits].lines[i].valid == 0){
+	    isfull = 0;
+	    break;
+	}
+    }
+    if(isfull == 0){
+	sim_cache-&gt;sets[setBits].lines[i].valid = 1;
+	sim_cache-&gt;sets[setBits].lines[i].tag = tagBits;
+	updateLruNumber(sim_cache,setBits,i);
+    }else{
+
+	int evictionIndex = findMinLruNumber(sim_cache,setBits);
+	sim_cache-&gt;sets[setBits].lines[evictionIndex].valid = 1;
+	sim_cache-&gt;sets[setBits].lines[evictionIndex].tag = tagBits;
+	updateLruNumber(sim_cache,setBits,evictionIndex);
+    }
+    return isfull;
+}
+
+void loadData(Sim_Cache *sim_cache,int addr,int size,int setBits,int tagBits ,int isVerbose){
+
+    if(isMiss(sim_cache,setBits,tagBits)==1){ 
+	misses++;
+	if(isVerbose == 1) printf("miss ");
+	if(updateCache(sim_cache,setBits,tagBits) == 1){
+	    evictions++;
+	    if(isVerbose==1) printf("eviction ");
+	}
+    }else{ 
+       hits++;
+       if(isVerbose == 1) printf("hit ");
+    }
+}
+
+void storeData(Sim_Cache *sim_cache,int addr,int size,int setBits,int tagBits ,int isVerbose){
+    loadData(sim_cache,addr,size,setBits,tagBits,isVerbose);
+}
+
+void modifyData(Sim_Cache *sim_cache,int addr,int size,int setBits,int tagBits ,int isVerbose){
+    loadData(sim_cache,addr,size,setBits,tagBits,isVerbose);
+    storeData(sim_cache,addr,size,setBits,tagBits,isVerbose);
+}
+
+void init_SimCache(int s,int E,int b,Sim_Cache *cache){
+    if(s &lt; 0){
+	printf("invaild cache sets number\n!");
+	exit(0);
+    }
+    cache-&gt;set_num = 2 &lt;&lt; s; 
+    cache-&gt;line_num = E;
+    cache-&gt;sets = (Set *)malloc(cache-&gt;set_num * sizeof(Set));
+    if(!cache-&gt;sets){
+	printf("Set Memory error\n");
+	exit(0);
+    }
+    int i ,j;
+    for(i=0; i&lt; cache-&gt;set_num; i++)
+    {
+	cache-&gt;sets[i].lines = (Line *)malloc(E*sizeof(Line));
+	if(!cache-&gt;sets){
+	    printf("Line Memory error\n");
+	    exit(0);
+	}
+	for(j=0; j &lt; E; j++){
+	    cache-&gt;sets[i].lines[j].valid = 0;
+	    cache-&gt;sets[i].lines[j].LruNumber = 0;
+	}
+    }
+    return ;
+}
+int get_Opt(int argc,char **argv,int *s,int *E,int *b,char *tracefileName,int *isVerbose){
+    int c;
+    while((c = getopt(argc,argv,"hvs:E:b:t:"))!=-1)
+    {
+	switch(c)
+	{
+	case 'v':
+	    *isVerbose = 1;
+	    break;
+	case 's':
+	    checkOptarg(optarg);
+	    *s = atoi(optarg);
+	    break;
+	case 'E':
+	    checkOptarg(optarg);
+	    *E = atoi(optarg);
+	    break;
+	case 'b':
+	    checkOptarg(optarg);
+	    *b = atoi(optarg);
+	    break;
+	case 't':
+	    checkOptarg(optarg);
+	    strcpy(tracefileName,optarg);
+	    break;
+	case 'h':
+	default:
+	    printHelpMenu();
+	    exit(0);
+	}
+    }
+    return 1;
+}
+void printHelpMenu(){
+    printf("Usage: ./csim-ref [-hv] -s &lt;num&gt; -E &lt;num&gt; -b &lt;num&gt; -t &lt;file&gt;\n");
+    printf("Options:\n");
+    printf("-h         Print this help message.\n");
+    printf("-v         Optional verbose flag.\n");
+    printf("-s &lt;num&gt;   Number of set index bits.\n");
+    printf("-E &lt;num&gt;   Number of lines per set.\n");
+    printf("-b &lt;num&gt;   Number of block offset bits.\n");
+    printf("-t &lt;file&gt;  Trace file.\n\n\n");
+    printf("Examples:\n");
+    printf("linux&gt;  ./csim -s 4 -E 1 -b 4 -t traces/yi.trace\n");
+    printf("linux&gt;  ./csim -v -s 8 -E 2 -b 4 -t traces/yi.trace\n");
+}
+void checkOptarg(char *curOptarg){
+    if(curOptarg[0]=='-'){
+	printf("./csim :Missing required command line argument\n");
+	printHelpMenu();
+	exit(0);
+    }
+}
+
+trans
+/***********************************
+ *
+ * Name:        Guo Tiankui
+ * userID:      1300012790@pku.edu.cn
+ *
+ ***********************************/
+
+/* 
+ * trans.c - Matrix transpose B = A^T
+ *
+ * Each transpose function must have a prototype of the form:
+ * void trans(int M, int N, int A[N][M], int B[M][N]);
+ *
+ * A transpose function is evaluated by counting the number of misses
+ * on a 1KB direct mapped cache with a block size of 32 bytes.
+ */ 
+#include &lt;stdio.h&gt;
+#include "cachelab.h"
+#include "contracts.h"
+
+int is_transpose(int M, int N, int A[N][M], int B[M][N]);
+
+/* 
+ * transpose_submit - This is the solution transpose function that you
+ *     will be graded on for Part B of the assignment. Do not change
+ *     the description string "Transpose submission", as the driver
+ *     searches for that string to identify the transpose function to
+ *     be graded. The REQUIRES and ENSURES from 15-122 are included
+ *     for your convenience. They can be removed if you like.
+ */
+char transpose_submit_desc[] = "Transpose submission";
+void transpose_submit(int M, int N, int A[N][M], int B[M][N])
+{
+
+	REQUIRES(M &gt; 0);
+	REQUIRES(N &gt; 0);
+
+	if (M == 61) {
+		int i, j, k, a, b, c, d, e, f, g, h;
+
+    // 48 * 48
+    for (i = 0; i+16 &lt; N; i += 16) {
+	for (j = 0; j+16 &lt; M; j+=16) {
+	    for (k = i; k &lt; i+16; k++) {
+		a = A[k][j];
+		b = A[k][j+1];
+		c = A[k][j+2];
+		d = A[k][j+3];
+		e = A[k][j+4];
+		f = A[k][j+5];
+		g = A[k][j+6];
+		h = A[k][j+7];
+
+		B[j+0][k] = a;
+		B[j+1][k] = b;
+		B[j+2][k] = c;
+		B[j+3][k] = d;
+		B[j+4][k] = e;
+		B[j+5][k] = f;
+		B[j+6][k] = g;
+		B[j+7][k] = h;
+
+		a = A[k][j+8];
+		b = A[k][j+9];
+		c = A[k][j+10];
+		d = A[k][j+11];
+		e = A[k][j+12];
+		f = A[k][j+13];
+		g = A[k][j+14];
+		h = A[k][j+15];
+		B[j+8][k] = a;
+		B[j+9][k] = b;
+		B[j+10][k] = c;
+		B[j+11][k] = d;
+		B[j+12][k] = e;
+		B[j+13][k] = f;
+		B[j+14][k] = g;
+		B[j+15][k] = h;
+
+	    }
+	}
+    }
+    for (k = i; k &lt; N; k++) {
+	for (h = 0; h &lt; M; h++){
+	    B[h][k] = A[k][h];
+	}
+    }
+    for (k = 0; k &lt; i; k++) {
+	for (h = j; h &lt; M; h++) {
+	    B[h][k] = A[k][h];
+	}
+    }
+	} else if (M == 32) {
+		int a, b, c, d, e, f, g, h;
+		for (int i = 0; i &lt; N; i += 8) {
+		for (int j = 0; j &lt; M; j += 8) {
+		for (int k = i; k &lt; i + 8; k++) {
+			a = A[k][0+j];
+			b = A[k][1+j];
+			c = A[k][2+j];
+			d = A[k][3+j];
+			e = A[k][4+j];
+			f = A[k][5+j];
+			g = A[k][6+j];
+			h = A[k][7+j];
+
+			B[0+j][k] = a;
+			B[1+j][k] = b;
+			B[2+j][k] = c;
+			B[3+j][k] = d;
+			B[4+j][k] = e;
+			B[5+j][k] = f;
+			B[6+j][k] = g;
+			B[7+j][k] = h;
+		}
+	}
+		}
+	} else if (M == 64) {
+		int value0, value1, value2, value3, value4, value5, value6, value7;
+    for (int i = 0; i &lt; N; i += 8) {
+	for (int j = 0; j &lt; M; j += 8) {
+	    for (int k = i; k &lt; i + 4; k++) {
+		value0 = A[k][j];
+		value1 = A[k][j+1];
+		value2 = A[k][j+2];
+		value3 = A[k][j+3];
+		value4 = A[k][j+4];
+		value5 = A[k][j+5];
+		value6 = A[k][j+6];
+		value7 = A[k][j+7];
+
+		// a
+		B[j][k] = value0;
+		B[j+1][k] = value1;
+		B[j+2][k] = value2;
+		B[j+3][k] = value3;
+
+		B[j+0][k+4] = value7;
+		B[j+1][k+4] = value6;
+		B[j+2][k+4] = value5;
+		B[j+3][k+4] = value4;
+	    }
+	    for (int h = 0; h &lt; 4; h++) {
+		value0 = A[i+4][j+3-h];
+		value1 = A[i+5][j+3-h];
+		value2 = A[i+6][j+3-h];
+		value3 = A[i+7][j+3-h];
+		value4 = A[i+4][j+4+h];
+		value5 = A[i+5][j+4+h];
+		value6 = A[i+6][j+4+h];
+		value7 = A[i+7][j+4+h];
+
+		B[j+4+h][i+0] = B[j+3-h][i+4];
+		B[j+4+h][i+1] = B[j+3-h][i+5];
+		B[j+4+h][i+2] = B[j+3-h][i+6];
+		B[j+4+h][i+3] = B[j+3-h][i+7];
+
+		B[j+3-h][i+4] = value0;
+		B[j+3-h][i+5] = value1;
+		B[j+3-h][i+6] = value2;
+		B[j+3-h][i+7] = value3;
+		B[j+4+h][i+4] = value4;
+		B[j+4+h][i+5] = value5;
+		B[j+4+h][i+6] = value6;
+		B[j+4+h][i+7] = value7;
+	    }
+	}
+	}
+}
+
+	ENSURES(is_transpose(M, N, A, B));
+}
+
+/* 
+ * You can define additional transpose functions below. We've defined
+ * a simple one below to help you get started. 
+ */ 
+
+/* 
+ * trans - A simple baseline transpose function, not optimized for the cache.
+ */
+char trans_desc[] = "Simple row-wise scan transpose";
+void trans(int M, int N, int A[N][M], int B[M][N])
+{
+	int i, j, tmp;
+
+	REQUIRES(M &gt; 0);
+	REQUIRES(N &gt; 0);
+
+	for (i = 0; i &lt; N; i++) {
+		for (j = 0; j &lt; M; j++) {
+			tmp = A[i][j];
+			B[j][i] = tmp;
+		}
+	}    
+
+	ENSURES(is_transpose(M, N, A, B));
+}
+
+/*
+ * registerFunctions - This function registers your transpose
+ *     functions with the driver.  At runtime, the driver will
+ *     evaluate each of the registered functions and summarize their
+ *     performance. This is a handy way to experiment with different
+ *     transpose strategies.
+ */
+void registerFunctions()
+{
+	/* Register your solution function */
+	registerTransFunction(transpose_submit, transpose_submit_desc); 
+
+	/* Register any additional transpose functions */
+	registerTransFunction(trans, trans_desc); 
+
+}
+
+/* 
+ * is_transpose - This helper function checks if B is the transpose of
+ *     A. You can check the correctness of your transpose by calling
+ *     it before returning from the transpose function.
+ */
+int is_transpose(int M, int N, int A[N][M], int B[M][N])
+{
+	int i, j;
+
+	for (i = 0; i &lt; N; i++) {
+		for (j = 0; j &lt; M; ++j) {
+			if (A[i][j] != B[j][i]) {
+				return 0;
+			}
+		}
+	}
+	return 1;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Lab 2 Memory Allocation Lab</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 解题思路的文字说明</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+对于速度（thru）而言，我们需要关注malloc、free、realloc每次操作的复杂度。对于内存利用率（util）而言，
+我们需要关注internal fragmentation （块内损失）和 external fragmentation （块是分散不连续的，无法整体利用），
+即我们free和malloc的时候要注意整体大块利用（例如合并free块、realloc的时候判断下一个块是否空闲）。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 代码</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+请将实验的C代码及其注释填入下面的C代码块.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">/* matrix multiply permutations */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "mm.h"
+
+#include "clock.h"
+
+/* whether or not fcyc should clear the cache */
+#define CLEARCACHE 1  
+
+/* global arrays */
+array ga, gb, gc;
+
+/* check the result array for correctness */
+void checkresult(array c, int n)
+{
+    int i, j;
+
+    for (i = 0; i &lt; n; i++)
+	for (j = 0; j &lt; n; j++)
+	    if (c[i][j] != (double)n) {
+	      printf("Error: bad number (%f) in result matrix (%d,%d)\n", 
+		       c[i][j], i, j);
+	      fflush(stdout);
+		exit(0);
+	    }
+}
+
+/* Run f and return clocks per inner loop iteration */
+double run(test_funct f, int n)
+{
+    double cpi;
+
+    cpi = fcyc(f, n, CLEARCACHE) / (n*n*n);
+    checkresult(gc, n);
+    return(cpi);
+}
+
+/* reset result array to zero */
+void reset(array c, int n)
+{
+    int i,j;
+
+    for (i = 0; i &lt; n; i++) {
+	for (j = 0; j &lt; n; j++) {
+	    c[i][j] = 0.0;
+	}
+    }
+}
+
+/* initialize input arrays to 1 */
+void init(array a, array b, int n) 
+{
+    int i,j;
+
+    for (i = 0; i &lt; n; i++) {
+	for (j = 0; j &lt; n; j++) {
+	    a[i][j] = 1.0;
+	    b[i][j] = 1.0;
+	}
+    }
+}
+
+
+/* print an array (debug) */
+void printarray(array a, int n)
+{
+    int i, j;
+
+    for (i = 0; i &lt; n; i++) {
+	for (j = 0; j &lt; n; j++) {
+	    printf("%5.1f ", a[i][j]);
+	}
+	printf("\n");
+    }
+}
+
+/***********************************************
+ * Six different versions of matrix multiply 
+ ***********************************************/
+void ijk(array A, array B, array C, int n) 
+{
+    int i, j, k;
+    double sum;
+
+/* $begin mm-ijk */
+for (i = 0; i &lt; n; i++) 
+    for (j = 0; j &lt; n; j++) {
+	sum = 0.0;
+	for (k = 0; k &lt; n; k++)
+	    sum += A[i][k]*B[k][j];
+	C[i][j] += sum;
+    }
+/* $end mm-ijk */
+
+}
+
+void jik(array A, array B, array C, int n) 
+{
+    int i, j, k;
+    double sum;
+
+/* $begin mm-jik */
+for (j = 0; j &lt; n; j++) 
+    for (i = 0; i &lt; n; i++) {
+	sum = 0.0;
+	for (k = 0; k &lt; n; k++)
+	    sum += A[i][k]*B[k][j];
+	C[i][j] += sum;
+    }
+/* $end mm-jik */
+}
+
+void ikj(array A, array B, array C, int n) 
+{
+    int i, j, k;
+    double r;
+
+    /* $begin mm-ikj */
+for (i = 0; i &lt; n; i++)
+    for (k = 0; k &lt; n; k++) {
+	r = A[i][k];
+	for (j = 0; j &lt; n; j++)
+	    C[i][j] += r*B[k][j];
+    }
+/* $end mm-ikj */
+}
+
+void kij(array A, array B, array C, int n)
+{
+    int i, j, k;
+    double r;
+
+    /* $begin mm-kij */
+for (k = 0; k &lt; n; k++)
+    for (i = 0; i &lt; n; i++) {
+	r = A[i][k];
+	for (j = 0; j &lt; n; j++)
+	    C[i][j] += r*B[k][j];
+    }
+/* $end mm-kij */
+}
+
+void kji(array A, array B, array C, int n)
+{
+    int i, j, k;
+    double r;
+
+/* $begin mm-kji */
+for (k = 0; k &lt; n; k++)
+    for (j = 0; j &lt; n; j++) {
+	r = B[k][j];
+	for (i = 0; i &lt; n; i++)
+	    C[i][j] += A[i][k]*r;
+    }
+/* $end mm-kji */
+}
+
+void jki(array A, array B, array C, int n)
+{
+    int i, j, k;
+    double r;
+
+/* $begin mm-jki */
+for (j = 0; j &lt; n; j++)
+    for (k = 0; k &lt; n; k++) {
+	r = B[k][j];
+	for (i = 0; i &lt; n; i++)
+	    C[i][j] += A[i][k]*r;
+    }
+/* $end mm-jki */
+}
+
+/* 
+ * Run the six versions of matrix multiply and display performance
+ * as clock cycles per inner loop iteration.
+ */ 
+
+int main()
+{
+    int n;
+
+    init(ga, gb, MAXN);
+
+    printf("matmult cycles/loop iteration\n");
+    printf("%3s%6s%6s%6s%6s%6s%6s\n", "n", 
+	   "jki", "kji", "ijk", "jik", "kij", "ikj");
+    fflush(stdout);
+    for (n = MINN; n &lt;= MAXN; n += INCN) {  
+	printf("%3d ", n);
+
+	printf("%5.2f ", run(jki, n));
+	printf("%5.2f ", run(kji, n));
+	printf("%5.2f ", run(ijk, n));
+	printf("%5.2f ", run(jik, n));
+	printf("%5.2f ", run(kij, n));
+	printf("%5.2f ", run(ikj, n));
+	printf("\n");
+	fflush(stdout);
+    }
+    exit(0);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Lab 3 Tiny Shell</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 解题思路的文字说明</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+测试的时候的一些奇葩函数， mytstpp 向shell 发出一个SIGTSTP，而mytstps 向自己的进程发出SIGTSTP信号。
+前者shell 会调用sigtstp<sub>handle</sub> 函数，而后者会使子进程stop，然后向shell 发出SIGCHLD信号，shell调用sigchld<sub>handle</sub> 函数。这就要求我们分清楚每一个信号会由哪个进程（函数）处理。
+shell收到的每个SIGTDTP，SIGINT信号都要发给前台进程，而这个前台进程是由自己的job<sub>list</sub> 列表维护的，而实际上每个子进程的停止，终止都是由信号操作。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 代码</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+请将实验的C代码及其注释填入下面的C代码块.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">/* 
+ * tsh - A tiny shell program with job control
+ * 
+ * Name:        Sun xinyi
+ * userID:      179074159
+ *
+ */
+#include &lt;assert.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;sys/wait.h&gt;
+#include &lt;errno.h&gt;
+
+/* Misc manifest constants */
+#define MAXLINE    1024   /* max line size */
+#define MAXARGS     128   /* max args on a command line */
+#define MAXJOBS      16   /* max jobs at any point in time */
+#define MAXJID    1&lt;&lt;16   /* max job ID */
+
+/* Job states */
+#define UNDEF         0   /* undefined */
+#define FG            1   /* running in foreground */
+#define BG            2   /* running in background */
+#define ST            3   /* stopped */
+
+/* 
+ * Jobs states: FG (foreground), BG (background), ST (stopped)
+ * Job state transitions and enabling actions:
+ *     FG -&gt; ST  : ctrl-z
+ *     ST -&gt; FG  : fg command
+ *     ST -&gt; BG  : bg command
+ *     BG -&gt; FG  : fg command
+ * At most 1 job can be in the FG state.
+ */
+
+/* Parsing states */
+#define ST_NORMAL   0x0   /* next token is an argument */
+#define ST_INFILE   0x1   /* next token is the input file */
+#define ST_OUTFILE  0x2   /* next token is the output file */
+
+
+/* Global variables */
+extern char **environ;      /* defined in libc */
+char prompt[] = "tsh&gt; ";    /* command line prompt (DO NOT CHANGE) */
+int verbose = 0;            /* if true, print additional output */
+int nextjid = 1;            /* next job ID to allocate */
+char sbuf[MAXLINE];         /* for composing sprintf messages */
+
+struct job_t {              /* The job struct */
+	pid_t pid;              /* job PID */
+	int jid;                /* job ID [1, 2, ...] */
+	int state;              /* UNDEF, BG, FG, or ST */
+	char cmdline[MAXLINE];  /* command line */
+};
+struct job_t job_list[MAXJOBS]; /* The job list */
+
+struct cmdline_tokens {
+	int argc;               /* Number of arguments */
+	char *argv[MAXARGS];    /* The arguments list */
+	char *infile;           /* The input file */
+	char *outfile;          /* The output file */
+	enum builtins_t {       /* Indicates if argv[0] is a builtin command */
+		BUILTIN_NONE,
+		BUILTIN_QUIT,
+		BUILTIN_JOBS,
+		BUILTIN_BG,
+		BUILTIN_FG} builtins;
+};
+/* End global variables */
+
+
+/* Function prototypes */
+void eval(char *cmdline);
+int builtin_cmd(struct cmdline_tokens tok, int input_fd, int output_fd);
+void do_bgfg(char *argv, int bg, int output_fd);
+
+void sigchld_handler(int sig);
+void sigtstp_handler(int sig);
+void sigint_handler(int sig);
+
+/* Here are helper routines that we've provided for you */
+int parseline(const char *cmdline, struct cmdline_tokens *tok); 
+void sigquit_handler(int sig);
+
+void clearjob(struct job_t *job);
+void initjobs(struct job_t *job_list);
+int maxjid(struct job_t *job_list); 
+int addjob(struct job_t *job_list, pid_t pid, int state, char *cmdline);
+int deletejob(struct job_t *job_list, pid_t pid); 
+pid_t fgpid(struct job_t *job_list);
+struct job_t *getjobpid(struct job_t *job_list, pid_t pid);
+struct job_t *getjobjid(struct job_t *job_list, int jid); 
+int pid2jid(pid_t pid); 
+void listjobs(struct job_t *job_list, int output_fd);
+
+void usage(void);
+void unix_error(char *msg);
+void app_error(char *msg);
+typedef void handler_t(int);
+handler_t *Signal(int signum, handler_t *handler);
+
+/* Process control wrappers */
+pid_t Fork(void);
+void Execve(const char *filename, char *const argv[], char *const envp[]);
+pid_t Wait(int *status);
+pid_t Waitpid(pid_t pid, int *iptr, int options);
+void Kill(pid_t pid, int signum);
+void Pause(void);
+unsigned int Alarm(unsigned int seconds);
+void Setpgid(pid_t pid, pid_t pgid);
+pid_t Getpgrp();
+
+/* Signal wrappers */
+void Sigprocmask(int how, const sigset_t *set, sigset_t *oldset);
+void Sigemptyset(sigset_t *set);
+void Sigaddset(sigset_t *set, int signum);
+
+/* Unix I/O wrappers */
+int Open(const char *pathname, int flags, mode_t mode);
+void Close(int fd);
+int Dup2(int fd1, int fd2);
+
+/*
+ * main - The shell's main routine 
+ */
+	int 
+main(int argc, char **argv) 
+{
+	char c;
+	char cmdline[MAXLINE];    /* cmdline for fgets */
+	int emit_prompt = 1; /* emit prompt (default) */
+
+	/* Redirect stderr to stdout (so that driver will get all output
+	 * on the pipe connected to stdout) */
+	dup2(1, 2);
+
+	/* Parse the command line */
+	while ((c = getopt(argc, argv, "hvp")) != EOF) {
+		switch (c) {
+			case 'h':             /* print help message */
+				usage();
+				break;
+			case 'v':             /* emit additional diagnostic info */
+				verbose = 1;
+				break;
+			case 'p':             /* don't print a prompt */
+				emit_prompt = 0;  /* handy for automatic testing */
+				break;
+			default:
+				usage();
+		}
+	}
+
+	/* Install the signal handlers */
+
+	/* These are the ones you will need to implement */
+	Signal(SIGINT,  sigint_handler);   /* ctrl-c */
+	Signal(SIGTSTP, sigtstp_handler);  /* ctrl-z */
+	Signal(SIGCHLD, sigchld_handler);  /* Terminated or stopped child */
+
+	/* SIGTTIN shouldn't be ignored, for that when a background process
+	 * tries to read from the terminal, it should be stopped and waiting
+	 * for being foreground. */
+
+	// Signal(SIGTTIN, SIG_IGN);
+	Signal(SIGTTOU, SIG_IGN);
+
+	/* This one provides a clean way to kill the shell */
+	Signal(SIGQUIT, sigquit_handler); 
+
+	/* Initialize the job list */
+	initjobs(job_list);
+
+
+	/* Execute the shell's read/eval loop */
+	while (1) {
+
+		if (emit_prompt) {
+			printf("%s", prompt);
+			fflush(stdout);
+		}
+		if ((fgets(cmdline, MAXLINE, stdin) == NULL) &amp;&amp; ferror(stdin))
+			app_error("fgets error");
+		if (feof(stdin)) { 
+			/* End of file (ctrl-d) */
+			printf ("\n");
+			fflush(stdout);
+			fflush(stderr);
+			exit(0);
+		}
+
+		/* Remove the trailing newline */
+		cmdline[strlen(cmdline)-1] = '\0';
+
+		/* Evaluate the command line */
+		eval(cmdline);
+
+		fflush(stdout);
+		fflush(stdout);
+	} 
+
+	exit(0); /* control never reaches here */
+}
+
+/* 
+ * eval - Evaluate the command line that the user has just typed in
+ * 
+ * If the user has requested a built-in command (quit, jobs, bg or fg)
+ * then execute it immediately. Otherwise, fork a child process and
+ * run the job in the context of the child. If the job is running in
+ * the foreground, wait for it to terminate and then return.  Note:
+ * each child process must have a unique process group ID so that our
+ * background children don't receive SIGINT (SIGTSTP) from the kernel
+ * when we type ctrl-c (ctrl-z) at the keyboard.  
+ */
+	void 
+eval(char *cmdline) 
+{
+	int bg;              /* should the job run in bg or fg? */
+	struct cmdline_tokens tok;
+
+	/* Parse command line */
+	bg = parseline(cmdline, &amp;tok); 
+
+	if (bg == -1) return;               /* parsing error */
+	if (tok.argv[0] == NULL)  return;   /* ignore empty lines */
+
+	int input_fd = tok.infile ?
+		Open(tok.infile, O_RDONLY | O_CLOEXEC, 0) :
+		STDIN_FILENO;
+	int output_fd = tok.outfile ?
+		Open(tok.outfile, O_WRONLY | O_CREAT | O_TRUNC | O_CLOEXEC, 0644) :
+		STDOUT_FILENO;
+
+	pid_t pid;
+	sigset_t mask;
+
+	if (!builtin_cmd(tok, input_fd, output_fd)) {
+		Sigemptyset(&amp;mask);
+		Sigaddset(&amp;mask, SIGCHLD);
+		Sigaddset(&amp;mask, SIGINT);
+		Sigaddset(&amp;mask, SIGTSTP);
+		Sigprocmask(SIG_BLOCK, &amp;mask, NULL);
+		if ((pid = Fork()) == 0) {
+			Setpgid(0, 0);
+			if (input_fd != STDIN_FILENO)
+				Dup2(input_fd, STDIN_FILENO);
+			if (output_fd != STDOUT_FILENO)
+				Dup2(output_fd, STDOUT_FILENO);
+			if(!bg)
+				tcsetpgrp(STDIN_FILENO, getpid());
+			Sigprocmask(SIG_UNBLOCK, &amp;mask, NULL);
+			Execve(tok.argv[0], tok.argv, environ);
+		}
+		addjob(job_list, pid, bg ? BG : FG, cmdline);
+		Sigprocmask(SIG_UNBLOCK, &amp;mask, NULL);
+		if (bg)
+			printf("[%d] (%d) %s\n", pid2jid(pid), pid, cmdline);
+		else {
+			tcsetpgrp(STDIN_FILENO, pid);
+			while (pid == fgpid(job_list))
+				Pause();
+			tcsetpgrp(STDIN_FILENO, getpid());
+		}
+	}
+
+	if (tok.infile)
+		close(input_fd);
+	if (tok.outfile)
+		close(output_fd);
+
+
+	return;
+}
+
+int builtin_cmd(struct cmdline_tokens tok, int input_fd, int output_fd) {
+	if (tok.builtins == BUILTIN_JOBS)
+		listjobs(job_list, output_fd);
+	else if (tok.builtins == BUILTIN_BG)
+		do_bgfg(tok.argv[1], 1, output_fd);
+	else if (tok.builtins == BUILTIN_FG)
+		do_bgfg(tok.argv[1], 0, output_fd);
+	else if (tok.builtins == BUILTIN_QUIT) {
+		if (tok.infile)
+			close(input_fd);
+		if (tok.outfile)
+			close(output_fd);
+		exit(0);
+	} else if (tok.builtins == BUILTIN_NONE)
+		return 0;
+	return 1;
+}
+
+void do_bgfg(char *argv, int bg, int output_fd) {
+	struct job_t *job;
+	int pid;
+	if (argv[0] == '%')
+		job = getjobjid(job_list, atoi(argv + 1));
+	else
+		job = getjobpid(job_list, atoi(argv));
+	pid = job-&gt;pid;
+	job-&gt;state = bg ? BG : FG;
+	if (bg) {
+		dprintf(output_fd, "[%d] (%d) %s\n", job-&gt;jid, pid, job-&gt;cmdline);
+		Kill(-pid, SIGCONT);
+	} else {
+		tcsetpgrp(STDIN_FILENO, pid);
+		Kill(-pid, SIGCONT);
+		while (pid == fgpid(job_list))
+			Pause();
+		tcsetpgrp(STDIN_FILENO, getpid());
+	}
+}
+
+/* 
+ * parseline - Parse the command line and build the argv array.
+ * 
+ * Parameters:
+ *   cmdline:  The command line, in the form:
+ *
+ *                command [arguments...] [&lt; infile] [&gt; oufile] [&amp;]
+ *
+ *   tok:      Pointer to a cmdline_tokens structure. The elements of this
+ *             structure will be populated with the parsed tokens. Characters 
+ *             enclosed in single or double quotes are treated as a single
+ *             argument. 
+ * Returns:
+ *   1:        if the user has requested a BG job
+ *   0:        if the user has requested a FG job  
+ *  -1:        if cmdline is incorrectly formatted
+ * 
+ * Note:       The string elements of tok (e.g., argv[], infile, outfile) 
+ *             are statically allocated inside parseline() and will be 
+ *             overwritten the next time this function is invoked.
+ */
+	int 
+parseline(const char *cmdline, struct cmdline_tokens *tok) 
+{
+
+	static char array[MAXLINE];          /* holds local copy of command line */
+	const char delims[10] = " \t\r\n";   /* argument delimiters (white-space) */
+	char *buf = array;                   /* ptr that traverses command line */
+	char *next;                          /* ptr to the end of the current arg */
+	char *endbuf;                        /* ptr to the end of the cmdline string */
+	int is_bg;                           /* background job? */
+
+	int parsing_state;                   /* indicates if the next token is the
+											input or output file */
+
+	if (cmdline == NULL) {
+		(void) fprintf(stderr, "Error: command line is NULL\n");
+		return -1;
+	}
+
+	(void) strncpy(buf, cmdline, MAXLINE);
+	endbuf = buf + strlen(buf);
+
+	tok-&gt;infile = NULL;
+	tok-&gt;outfile = NULL;
+
+	/* Build the argv list */
+	parsing_state = ST_NORMAL;
+	tok-&gt;argc = 0;
+
+	while (buf &lt; endbuf) {
+		/* Skip the white-spaces */
+		buf += strspn (buf, delims);
+		if (buf &gt;= endbuf) break;
+
+		/* Check for I/O redirection specifiers */
+		if (*buf == '&lt;') {
+			if (tok-&gt;infile) {
+				(void) fprintf(stderr, "Error: Ambiguous I/O redirection\n");
+				return -1;
+			}
+			parsing_state |= ST_INFILE;
+			buf++;
+			continue;
+		}
+		if (*buf == '&gt;') {
+			if (tok-&gt;outfile) {
+				(void) fprintf(stderr, "Error: Ambiguous I/O redirection\n");
+				return -1;
+			}
+			parsing_state |= ST_OUTFILE;
+			buf++;
+			continue;
+		}
+
+		if (*buf == '\'' || *buf == '\"') {
+			/* Detect quoted tokens */
+			buf++;
+			next = strchr (buf, *(buf-1));
+		} else {
+			/* Find next delimiter */
+			next = buf + strcspn (buf, delims);
+		}
+
+		if (next == NULL) {
+			/* Returned by strchr(); this means that the closing
+			   quote was not found. */
+			(void) fprintf (stderr, "Error: unmatched %c.\n", *(buf-1));
+			return -1;
+		}
+
+		/* Terminate the token */
+		*next = '\0';
+
+		/* Record the token as either the next argument or the input/output file */
+		switch (parsing_state) {
+			case ST_NORMAL:
+				tok-&gt;argv[tok-&gt;argc++] = buf;
+				break;
+			case ST_INFILE:
+				tok-&gt;infile = buf;
+				break;
+			case ST_OUTFILE:
+				tok-&gt;outfile = buf;
+				break;
+			default:
+				(void) fprintf(stderr, "Error: Ambiguous I/O redirection\n");
+				return -1;
+		}
+		parsing_state = ST_NORMAL;
+
+		/* Check if argv is full */
+		if (tok-&gt;argc &gt;= MAXARGS-1) break;
+
+		buf = next + 1;
+	}
+
+	if (parsing_state != ST_NORMAL) {
+		(void) fprintf(stderr, "Error: must provide file name for redirection\n");
+		return -1;
+	}
+
+	/* The argument list must end with a NULL pointer */
+	tok-&gt;argv[tok-&gt;argc] = NULL;
+
+	if (tok-&gt;argc == 0)  /* ignore blank line */
+		return 1;
+
+	if (!strcmp(tok-&gt;argv[0], "quit")) {                 /* quit command */
+		tok-&gt;builtins = BUILTIN_QUIT;
+	} else if (!strcmp(tok-&gt;argv[0], "jobs")) {          /* jobs command */
+		tok-&gt;builtins = BUILTIN_JOBS;
+	} else if (!strcmp(tok-&gt;argv[0], "bg")) {            /* bg command */
+		tok-&gt;builtins = BUILTIN_BG;
+	} else if (!strcmp(tok-&gt;argv[0], "fg")) {            /* fg command */
+		tok-&gt;builtins = BUILTIN_FG;
+	} else {
+		tok-&gt;builtins = BUILTIN_NONE;
+	}
+
+	/* Should the job run in the background? */
+	if ((is_bg = (*tok-&gt;argv[tok-&gt;argc-1] == '&amp;')) != 0)
+		tok-&gt;argv[--tok-&gt;argc] = NULL;
+
+	return is_bg;
+}
+
+
+/*****************
+ * Signal handlers
+ *****************/
+
+/* 
+ * sigchld_handler - The kernel sends a SIGCHLD to the shell whenever
+ *     a child job terminates (becomes a zombie), or stops because it
+ *     received a SIGSTOP, SIGTSTP, SIGTTIN or SIGTTOU signal. The 
+ *     handler reaps all available zombie children, but doesn't wait 
+ *     for any other currently running children to terminate.  
+ */
+	void 
+sigchld_handler(int sig) 
+{
+	pid_t pid;
+	int status;
+	struct job_t *job;
+	while ((pid = waitpid(-1, &amp;status, WNOHANG | WUNTRACED)) &gt; 0) {
+		if ((job = getjobpid(job_list, pid)) != NULL) {
+			// Should always get here
+			if (WIFSTOPPED(status)) {
+				job-&gt;state = ST;
+				if (WSTOPSIG(status) != SIGTTIN)
+					printf("Job [%d] (%d) stopped by signal %d\n",
+							job-&gt;jid, pid, WSTOPSIG(status));
+			} else if (WIFSIGNALED(status)) {
+				printf("Job [%d] (%d) terminated by signal %d\n",
+						job-&gt;jid, pid, WTERMSIG(status));
+				deletejob(job_list, pid);
+			} else if (WIFEXITED(status))
+				deletejob(job_list, pid);
+		}
+	}
+	return;
+}
+
+/* 
+ * sigint_handler - The kernel sends a SIGINT to the shell whenver the
+ *    user types ctrl-c at the keyboard.  Catch it and send it along
+ *    to the foreground job.  
+ */
+	void 
+sigint_handler(int sig) 
+{
+	// Real shell won't do that!
+	pid_t pid = fgpid(job_list);
+	if (pid)
+		Kill(-pid, SIGINT);
+	return;
+}
+
+/*
+ * sigtstp_handler - The kernel sends a SIGTSTP to the shell whenever
+ *     the user types ctrl-z at the keyboard. Catch it and suspend the
+ *     foreground job by sending it a SIGTSTP.  
+ */
+	void 
+sigtstp_handler(int sig) 
+{
+	// Real shell won't do that!
+	pid_t pid = fgpid(job_list);
+	if (pid)
+		Kill(-pid, SIGTSTP);
+	return;
+}
+
+/*********************
+ * End signal handlers
+ *********************/
+
+/***********************************************
+ * Helper routines that manipulate the job list
+ **********************************************/
+
+/* clearjob - Clear the entries in a job struct */
+void 
+clearjob(struct job_t *job) {
+	job-&gt;pid = 0;
+	job-&gt;jid = 0;
+	job-&gt;state = UNDEF;
+	job-&gt;cmdline[0] = '\0';
+}
+
+/* initjobs - Initialize the job list */
+void 
+initjobs(struct job_t *job_list) {
+	int i;
+
+	for (i = 0; i &lt; MAXJOBS; i++)
+		clearjob(&amp;job_list[i]);
+}
+
+/* maxjid - Returns largest allocated job ID */
+	int 
+maxjid(struct job_t *job_list) 
+{
+	int i, max=0;
+
+	for (i = 0; i &lt; MAXJOBS; i++)
+		if (job_list[i].jid &gt; max)
+			max = job_list[i].jid;
+	return max;
+}
+
+/* addjob - Add a job to the job list */
+	int 
+addjob(struct job_t *job_list, pid_t pid, int state, char *cmdline) 
+{
+	int i;
+
+	if (pid &lt; 1)
+		return 0;
+
+	for (i = 0; i &lt; MAXJOBS; i++) {
+		if (job_list[i].pid == 0) {
+			job_list[i].pid = pid;
+			job_list[i].state = state;
+			job_list[i].jid = nextjid++;
+			if (nextjid &gt; MAXJOBS)
+				nextjid = 1;
+			strcpy(job_list[i].cmdline, cmdline);
+			if(verbose){
+				printf("Added job [%d] %d %s\n", job_list[i].jid, job_list[i].pid, job_list[i].cmdline);
+			}
+			return 1;
+		}
+	}
+	printf("Tried to create too many jobs\n");
+	return 0;
+}
+
+/* deletejob - Delete a job whose PID=pid from the job list */
+	int 
+deletejob(struct job_t *job_list, pid_t pid) 
+{
+	int i;
+
+	if (pid &lt; 1)
+		return 0;
+
+	for (i = 0; i &lt; MAXJOBS; i++) {
+		if (job_list[i].pid == pid) {
+			clearjob(&amp;job_list[i]);
+			nextjid = maxjid(job_list)+1;
+			return 1;
+		}
+	}
+	return 0;
+}
+
+/* fgpid - Return PID of current foreground job, 0 if no such job */
+pid_t 
+fgpid(struct job_t *job_list) {
+	int i;
+
+	for (i = 0; i &lt; MAXJOBS; i++)
+		if (job_list[i].state == FG)
+			return job_list[i].pid;
+	return 0;
+}
+
+/* getjobpid  - Find a job (by PID) on the job list */
+struct job_t 
+*getjobpid(struct job_t *job_list, pid_t pid) {
+	int i;
+
+	if (pid &lt; 1)
+		return NULL;
+	for (i = 0; i &lt; MAXJOBS; i++)
+		if (job_list[i].pid == pid)
+			return &amp;job_list[i];
+	return NULL;
+}
+
+/* getjobjid  - Find a job (by JID) on the job list */
+struct job_t *getjobjid(struct job_t *job_list, int jid) 
+{
+	int i;
+
+	if (jid &lt; 1)
+		return NULL;
+	for (i = 0; i &lt; MAXJOBS; i++)
+		if (job_list[i].jid == jid)
+			return &amp;job_list[i];
+	return NULL;
+}
+
+/* pid2jid - Map process ID to job ID */
+	int 
+pid2jid(pid_t pid) 
+{
+	int i;
+
+	if (pid &lt; 1)
+		return 0;
+	for (i = 0; i &lt; MAXJOBS; i++)
+		if (job_list[i].pid == pid) {
+			return job_list[i].jid;
+		}
+	return 0;
+}
+
+/* listjobs - Print the job list */
+	void 
+listjobs(struct job_t *job_list, int output_fd) 
+{
+	int i;
+	char buf[MAXLINE];
+
+	for (i = 0; i &lt; MAXJOBS; i++) {
+		memset(buf, '\0', MAXLINE);
+		if (job_list[i].pid != 0) {
+			sprintf(buf, "[%d] (%d) ", job_list[i].jid, job_list[i].pid);
+			if(write(output_fd, buf, strlen(buf)) &lt; 0) {
+				fprintf(stderr, "Error writing to output file\n");
+				exit(1);
+			}
+			memset(buf, '\0', MAXLINE);
+			switch (job_list[i].state) {
+				case BG:
+					sprintf(buf, "Running    ");
+					break;
+				case FG:
+					sprintf(buf, "Foreground ");
+					break;
+				case ST:
+					sprintf(buf, "Stopped    ");
+					break;
+				default:
+					sprintf(buf, "listjobs: Internal error: job[%d].state=%d ",
+							i, job_list[i].state);
+			}
+			if(write(output_fd, buf, strlen(buf)) &lt; 0) {
+				fprintf(stderr, "Error writing to output file\n");
+				exit(1);
+			}
+			memset(buf, '\0', MAXLINE);
+			sprintf(buf, "%s\n", job_list[i].cmdline);
+			if(write(output_fd, buf, strlen(buf)) &lt; 0) {
+				fprintf(stderr, "Error writing to output file\n");
+				exit(1);
+			}
+		}
+	}
+	if(output_fd != STDOUT_FILENO)
+		close(output_fd);
+}
+/******************************
+ * end job list helper routines
+ ******************************/
+
+
+/***********************
+ * Other helper routines
+ ***********************/
+
+/*
+ * usage - print a help message
+ */
+	void 
+usage(void) 
+{
+	printf("Usage: shell [-hvp]\n");
+	printf("   -h   print this message\n");
+	printf("   -v   print additional diagnostic information\n");
+	printf("   -p   do not emit a command prompt\n");
+	exit(1);
+}
+
+/*
+ * unix_error - unix-style error routine
+ */
+	void 
+unix_error(char *msg)
+{
+	fprintf(stdout, "%s: %s\n", msg, strerror(errno));
+	exit(1);
+}
+
+/*
+ * app_error - application-style error routine
+ */
+	void 
+app_error(char *msg)
+{
+	fprintf(stdout, "%s\n", msg);
+	exit(1);
+}
+
+/*
+ * Signal - wrapper for the sigaction function
+ */
+	handler_t 
+*Signal(int signum, handler_t *handler) 
+{
+	struct sigaction action, old_action;
+
+	action.sa_handler = handler;  
+	sigemptyset(&amp;action.sa_mask); /* block sigs of type being handled */
+	action.sa_flags = SA_RESTART; /* restart syscalls if possible */
+
+	if (sigaction(signum, &amp;action, &amp;old_action) &lt; 0)
+		unix_error("Signal error");
+	return (old_action.sa_handler);
+}
+
+/*
+ * sigquit_handler - The driver program can gracefully terminate the
+ *    child shell by sending it a SIGQUIT signal.
+ */
+	void 
+sigquit_handler(int sig) 
+{
+	printf("Terminating after receipt of SIGQUIT signal\n");
+	exit(1);
+}
+
+/*********************************************
+ * Wrappers for Unix process control functions
+ ********************************************/
+
+/* $begin forkwrapper */
+pid_t Fork(void) 
+{
+	pid_t pid;
+
+	if ((pid = fork()) &lt; 0)
+		unix_error("Fork error");
+	return pid;
+}
+/* $end forkwrapper */
+
+void Execve(const char *filename, char *const argv[], char *const envp[]) 
+{
+	if (execve(filename, argv, envp) &lt; 0)
+		unix_error("Execve error");
+}
+
+/* $begin wait */
+pid_t Wait(int *status) 
+{
+	pid_t pid;
+
+	if ((pid  = wait(status)) &lt; 0)
+		unix_error("Wait error");
+	return pid;
+}
+/* $end wait */
+
+pid_t Waitpid(pid_t pid, int *iptr, int options) 
+{
+	pid_t retpid;
+
+	if ((retpid  = waitpid(pid, iptr, options)) &lt; 0) 
+		unix_error("Waitpid error");
+	return(retpid);
+}
+
+/* $begin kill */
+void Kill(pid_t pid, int signum) 
+{
+	int rc;
+
+	if ((rc = kill(pid, signum)) &lt; 0)
+		unix_error("Kill error");
+}
+/* $end kill */
+
+void Pause() 
+{
+	(void)pause();
+	return;
+}
+
+void Setpgid(pid_t pid, pid_t pgid) {
+	int rc;
+
+	if ((rc = setpgid(pid, pgid)) &lt; 0)
+		unix_error("Setpgid error");
+	return;
+}
+
+void Sigprocmask(int how, const sigset_t *set, sigset_t *oldset)
+{
+	if (sigprocmask(how, set, oldset) &lt; 0)
+		unix_error("Sigprocmask error");
+	return;
+}
+
+void Sigemptyset(sigset_t *set)
+{
+	if (sigemptyset(set) &lt; 0)
+		unix_error("Sigemptyset error");
+	return;
+}
+
+void Sigaddset(sigset_t *set, int signum)
+{
+	if (sigaddset(set, signum) &lt; 0)
+		unix_error("Sigaddset error");
+	return;
+}
+
+/********************************
+ * Wrappers for Unix I/O routines
+ ********************************/
+
+int Open(const char *pathname, int flags, mode_t mode) 
+{
+	int rc;
+
+	if ((rc = open(pathname, flags, mode))  &lt; 0)
+		unix_error("Open error");
+	return rc;
+}
+
+void Close(int fd) 
+{
+	int rc;
+
+	if ((rc = close(fd)) &lt; 0)
+		unix_error("Close error");
+}
+
+int Dup2(int fd1, int fd2) 
+{
+	int rc;
+
+	if ((rc = dup2(fd1, fd2)) &lt; 0)
+		unix_error("Dup2 error");
+	return rc;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: 邹洋, 179074181</p>
+<p class="date">Created: 2019-12-10 二 17:35</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
